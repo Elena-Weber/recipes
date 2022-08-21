@@ -1,14 +1,23 @@
 import { View, FlatList, StyleSheet } from 'react-native';
+import { useLayoutEffect } from 'react';
 import Meal from '../components/Meal';
-import { MEALS } from '../data/dummy-data';
+import { MEALS, CATEGORIES } from '../data/dummy-data';
 
-function MealsScreen({ route }) { // route comes with navigation
+function MealsScreen({ route, navigation }) { // route comes with navigation
 
     const catId = route.params.categoryId;
 
     const displayedMeals = MEALS.filter((mealItem) => {
         return mealItem.categoryIds.indexOf(catId) >= 0;
     });
+
+    useLayoutEffect(() => { // like useEffect but displayed without delay, simultaneously with other constants' reading
+        const catTitle = CATEGORIES.find((category) => category.id === catId).title;
+
+        navigation.setOptions({
+            title: catTitle
+        });
+    }, [catId, navigation]); // dependencies, when to update the screen
 
     function renderMealItem(itemData) {
 

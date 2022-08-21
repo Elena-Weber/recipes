@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
         // applies to all screens automatically
@@ -29,6 +29,13 @@ export default function App() {
           <Stack.Screen
             name="Meals"
             component={MealsScreen}
+            // alternative dynamic title setting
+            // options={({ route, navigation }) => {
+            //   const catId = route.params.categoryId;
+            //   return {
+            //     title: catId,
+            //   };
+            // }}
           />
         </Stack.Navigator>
       </NavigationContainer>
