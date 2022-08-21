@@ -9,13 +9,24 @@ function Meal({ title, imageUrl, duration, complexity, affordability }) {
             >
                 <View style={styles.innerContainer}>
                     <View>
-                        <Image source={{ uri: imageUrl }} style={styles.image} />
-                        <Text style={styles.title}>{title}</Text>
+                        <Image
+                            source={{ uri: imageUrl }}
+                            style={styles.image}
+                        />
+                        <Text style={styles.title}>
+                            {title}
+                        </Text>
                     </View>
                     <View style={styles.details}>
-                        <Text style={styles.detailItem}>{duration}m</Text>
-                        <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-                        <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
+                        <Text style={styles.detailItem}>
+                            {duration}m
+                        </Text>
+                        <Text style={styles.detailItem}>
+                            {complexity.toUpperCase()}
+                        </Text>
+                        <Text style={styles.detailItem}>
+                            {affordability.toUpperCase()}
+                        </Text>
                     </View>
                 </View>
             </Pressable>

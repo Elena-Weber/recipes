@@ -2,7 +2,8 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import Meal from '../components/Meal';
 import { MEALS } from '../data/dummy-data';
 
-function MealsScreen({ route }) {
+function MealsScreen({ route }) { // route comes with navigation
+
     const catId = route.params.categoryId;
 
     const displayedMeals = MEALS.filter((mealItem) => {
@@ -10,19 +11,20 @@ function MealsScreen({ route }) {
     });
 
     function renderMealItem(itemData) {
-    const item = itemData.item;
 
-    const mealItemProps = {
-        title: item.title,
-        imageUrl: item.imageUrl,
-        affordability: item.affordability,
-        complexity: item.complexity,
-        duration: item.duration
-    };
+        const item = itemData.item;
 
-    return (
-        <Meal {...mealItemProps} />
-    );
+        const mealItemProps = {
+            title: item.title,
+            imageUrl: item.imageUrl,
+            affordability: item.affordability,
+            complexity: item.complexity,
+            duration: item.duration
+        };
+
+        return (
+            <Meal {...mealItemProps} />
+        );
     }
 
     return (
