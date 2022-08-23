@@ -1,7 +1,7 @@
 import { Pressable, View, Text, StyleSheet, Platform } from "react-native";
 
-function CategoryGridTile({title, color, whenPressed}) {
-    
+function CategoryGridTile({title, color, whenPressed}) { // destructuring props
+
     return (
         <View style={styles.card}>
             <Pressable
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
         elevation: 4, // shadow on Android
-        backgroundColor: 'white', // everything below this one is for shadow on Apple including bg color
+        backgroundColor: 'white', // everything below this one is for shadow on Apple, including this bg color
         shadowColor: 'black',
         shadowOpacity: 0.25,
         shadowOffset: {width:0, height: 2},

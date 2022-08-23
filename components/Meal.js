@@ -1,11 +1,23 @@
 import { View, Pressable, Text, Image, StyleSheet, Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import MealData from '../components/MealData';
 
-function Meal({ title, imageUrl, duration, complexity, affordability }) {
+function Meal({ id, title, imageUrl, duration, complexity, affordability }) { // props destructuring
+
+    const navigation = useNavigation();
+
+    function mealPicPressHandler() {
+        navigation.navigate('Meal', { // takes you to screen with this name
+            mealId: id // sends this data there
+        });
+    };
+
     return (
         <View style={styles.mealItem}>
             <Pressable
                 android_ripple={{ color: '#ccc' }}
                 style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
+                onPress={mealPicPressHandler}
             >
                 <View style={styles.innerContainer}>
                     <View>
@@ -17,7 +29,12 @@ function Meal({ title, imageUrl, duration, complexity, affordability }) {
                             {title}
                         </Text>
                     </View>
-                    <View style={styles.details}>
+                    <MealData
+                        duration={duration}
+                        affordability={affordability}
+                        complexity={complexity}
+                    />
+                    {/* <View style={styles.details}>
                         <Text style={styles.detailItem}>
                             {duration}m
                         </Text>
@@ -27,7 +44,7 @@ function Meal({ title, imageUrl, duration, complexity, affordability }) {
                         <Text style={styles.detailItem}>
                             {affordability.toUpperCase()}
                         </Text>
-                    </View>
+                    </View> */}
                 </View>
             </Pressable>
         </View>
@@ -65,14 +82,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         margin: 8,
     },
-    details: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 8,
-    },
-    detailItem: {
-        marginHorizontal: 4,
-        fontSize: 12,
-    },
+    // details: {
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     padding: 8,
+    // },
+    // detailItem: {
+    //     marginHorizontal: 4,
+    //     fontSize: 12,
+    // },
 });

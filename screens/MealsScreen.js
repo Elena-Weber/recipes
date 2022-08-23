@@ -24,6 +24,7 @@ function MealsScreen({ route, navigation }) { // route comes with navigation
         const item = itemData.item;
 
         const mealItemProps = {
+            id: item.id,
             title: item.title,
             imageUrl: item.imageUrl,
             affordability: item.affordability,
@@ -32,7 +33,7 @@ function MealsScreen({ route, navigation }) { // route comes with navigation
         };
 
         return (
-            <Meal {...mealItemProps} />
+            <Meal {...mealItemProps} /> // transfers all props
         );
     }
 
