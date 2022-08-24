@@ -1,6 +1,7 @@
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
 import MealData from '../components/MealData';
 import Subtitle from '../components/MealDetails/Subtitle';
+import List from '../components/MealDetails/List';
 import { MEALS } from '../data/dummy-data';
 
 function MealDetails({ route }) { // route comes with navigation
@@ -10,7 +11,7 @@ function MealDetails({ route }) { // route comes with navigation
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
     return (
-        <View>
+        <ScrollView style={styles.rootContainer}>
             <Image style={styles.image} source={{uri: selectedMeal.imageUrl}} />
             <Text style={styles.title}>
                 {selectedMeal.title}
@@ -21,25 +22,24 @@ function MealDetails({ route }) { // route comes with navigation
                 affordability={selectedMeal.affordability}
                 textStyle={styles.detailsText}
             />
-            <Subtitle>Ingredients</Subtitle>
-            {selectedMeal.ingredients.map((ingredient) => (
-                <Text key={ingredient}>
-                    {ingredient}
-                </Text>
-            ))}
-            <Subtitle>Directions</Subtitle>
-            {selectedMeal.steps.map((step) => (
-                <Text key={step}>
-                    {step}
-                </Text>
-            ))}
-        </View>
+            <View style={styles.container}>
+                <View style={styles.detailsContainer}>
+                    <Subtitle>Ingredients</Subtitle>
+                    <List data={selectedMeal.ingredients}/>
+                    <Subtitle>Directions</Subtitle>
+                    <List data={selectedMeal.steps}/>
+                </View>
+            </View>
+        </ScrollView>
     )
 }
 
 export default MealDetails;
 
 const styles = StyleSheet.create({
+    rootContainer: {
+        marginBottom: 32,
+    },
     image: {
         width: '100%',
         height: 350,
@@ -54,4 +54,10 @@ const styles = StyleSheet.create({
     detailsText: {
         color: 'white',
     },
+    container: {
+        alignItems: 'center',
+    },
+    detailsContainer: {
+        maxWidth: '80%',
+    }
 })
