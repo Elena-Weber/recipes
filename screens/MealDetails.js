@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         margin: 8,
         textAlign: 'center',
-        color: 'white',
+        color: '#20686c',
     },
     detailsText: {
-        color: 'white',
+        color: '#005236',
     },
     container: {
         alignItems: 'center',

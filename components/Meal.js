@@ -15,7 +15,7 @@ function Meal({ id, title, imageUrl, duration, complexity, affordability }) { //
     return (
         <View style={styles.mealItem}>
             <Pressable
-                android_ripple={{ color: '#ccc' }}
+                android_ripple={{ color: '#005236' }}
                 style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
                 onPress={mealPicPressHandler}
             >
@@ -34,17 +34,6 @@ function Meal({ id, title, imageUrl, duration, complexity, affordability }) { //
                         affordability={affordability}
                         complexity={complexity}
                     />
-                    {/* <View style={styles.details}>
-                        <Text style={styles.detailItem}>
-                            {duration}m
-                        </Text>
-                        <Text style={styles.detailItem}>
-                            {complexity.toUpperCase()}
-                        </Text>
-                        <Text style={styles.detailItem}>
-                            {affordability.toUpperCase()}
-                        </Text>
-                    </View> */}
                 </View>
             </Pressable>
         </View>
@@ -60,7 +49,7 @@ const styles = StyleSheet.create({
         overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
         backgroundColor: 'white',
         elevation: 4,
-        shadowColor: 'black',
+        shadowColor: '#005236',
         shadowOpacity: 0.25,
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 8,
@@ -81,15 +70,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         margin: 8,
+        color: '#20686c',
     },
-    // details: {
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     padding: 8,
-    // },
-    // detailItem: {
-    //     marginHorizontal: 4,
-    //     fontSize: 12,
-    // },
 });

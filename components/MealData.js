@@ -28,5 +28,6 @@ const styles = StyleSheet.create({
     detailItem: {
         marginHorizontal: 4,
         fontSize: 12,
+        color: '#005236'
     },
 })

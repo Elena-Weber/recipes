@@ -19,10 +19,10 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         marginVertical: 4,
         marginHorizontal: 12,
-        backgroundColor: 'pink',
+        backgroundColor: '#fe982a',
     },
     itemText: {
-        color: 'lightBlue',
+        color: 'black',
         textAlign: 'center',
     }
 })
