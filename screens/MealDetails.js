@@ -1,10 +1,10 @@
-import { Text, View, Image, StyleSheet, ScrollView, Button } from "react-native";
+import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
 import { useLayoutEffect } from 'react';
 import MealData from '../components/MealData';
 import Subtitle from '../components/MealDetails/Subtitle';
 import List from '../components/MealDetails/List';
+import HeaderBtn from '../components/HeaderBtn';
 import { MEALS } from '../data/dummy-data';
-import { NavigationContainer } from "@react-navigation/native";
 
 function MealDetails({ route, navigation }) { // route comes with navigation
 
@@ -19,9 +19,11 @@ function MealDetails({ route, navigation }) { // route comes with navigation
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
-                return <Button
-                    title="SAVE"
-                    onPress={headerBtnHandler} />
+                return <HeaderBtn
+                    onPressBtn={headerBtnHandler}
+                    icon="heart"
+                    color="white"
+                />
                 }
         })
     }, [navigation, headerBtnHandler]);
