@@ -71,5 +71,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         margin: 8,
         color: '#20686c',
+        borderBottomColor: '#fe982a',
+        borderBottomWidth: 2,
+        paddingBottom: 5,
+        borderStyle: 'dashed'
     },
 });

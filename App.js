@@ -12,10 +12,10 @@ import MealDetails from './screens/MealDetails';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-function drawerNavigator() {
+function DrawerNavigator() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="first" />
+      <Drawer.Screen name="Categories" />
       <Drawer.Screen name="second" />
     </Drawer.Navigator>
   );
@@ -37,6 +37,7 @@ export default function App() {
           <Stack.Screen
             name="Categories"
             component={CategoriesScreen}
+            // component={DrawerNavigator}
             options={{
               title: 'All categories'
             }}

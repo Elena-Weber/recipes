@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         marginVertical: 4,
         marginHorizontal: 12,
-        backgroundColor: '#fe982a',
+        borderColor: '#fe982a',
+        borderStyle: 'dashed',
+        borderWidth: 1,
     },
     itemText: {
         color: 'black',
