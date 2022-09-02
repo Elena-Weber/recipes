@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'; // 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Animated from 'react-native-reanimated';
 import CategoriesScreen from './screens/CategoriesScreen';
+import Favorites from './screens/Favorites';
 import MealsScreen from './screens/MealsScreen';
 import MealDetails from './screens/MealDetails';
 
@@ -15,8 +16,14 @@ const Drawer = createDrawerNavigator();
 function DrawerNavigator() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Categories" />
-      <Drawer.Screen name="second" />
+      <Drawer.Screen
+        name="CategoriesDrawer"
+        component={CategoriesScreen}
+      />
+      <Drawer.Screen
+        name="Favorites"
+        component={Favorites}
+      />
     </Drawer.Navigator>
   );
 };
@@ -36,8 +43,7 @@ export default function App() {
         >
           <Stack.Screen
             name="Categories"
-            component={CategoriesScreen}
-            // component={DrawerNavigator}
+            component={DrawerNavigator}
             options={{
               title: 'All categories'
             }}
