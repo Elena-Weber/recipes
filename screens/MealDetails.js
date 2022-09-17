@@ -31,7 +31,7 @@ function MealDetails({ route, navigation }) { // route comes with navigation
                 return <HeaderBtn
                     onPressBtn={headerBtnHandler}
                     icon={isFavorite ? 'heart' : 'heart-outline'}
-                    color="white"
+                    color="#E151AF"
                 />
                 }
         })
@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
         fontSize: 24,
         margin: 12,
         textAlign: 'center',
-        color: '#20686c',
-        borderBottomColor: '#fe982a',
-        borderBottomWidth: 2,
+        color: '#3EB4AF',
+        borderBottomColor: '#E151AF',
+        borderBottomWidth: 1,
         paddingBottom: 3,
         borderStyle: 'dashed'
     },
     detailsText: {
-        color: '#005236',
+        color: 'black',
     },
     container: {
         alignItems: 'center',

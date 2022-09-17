@@ -15,7 +15,7 @@ function Meal({ id, title, imageUrl, duration, complexity, affordability }) { //
     return (
         <View style={styles.mealItem}>
             <Pressable
-                android_ripple={{ color: '#005236' }}
+                android_ripple={{ color: '#3EB4AF' }}
                 style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
                 onPress={mealPicPressHandler}
             >
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
         backgroundColor: 'white',
         elevation: 4,
-        shadowColor: '#005236',
+        shadowColor: '#3EB4AF',
         shadowOpacity: 0.25,
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 8,
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         margin: 8,
-        color: '#20686c',
-        borderBottomColor: '#fe982a',
-        borderBottomWidth: 2,
+        color: '#3EB4AF',
+        borderBottomColor: '#E151AF',
+        borderBottomWidth: 1,
         paddingBottom: 5,
         borderStyle: 'dashed'
     },

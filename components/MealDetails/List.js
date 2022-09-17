@@ -19,12 +19,13 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         marginVertical: 4,
         marginHorizontal: 12,
-        borderColor: '#fe982a',
+        borderColor: '#EDB75F',
         borderStyle: 'dashed',
         borderWidth: 1,
     },
     itemText: {
         color: 'black',
         textAlign: 'center',
+        fontSize: 15
     }
 })

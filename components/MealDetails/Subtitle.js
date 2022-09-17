@@ -12,7 +12,7 @@ export default Subtitle;
 
 const styles = StyleSheet.create({
     subtitle: {
-        color: '#005236',
+        color: '#3EB4AF',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         padding: 6,
         marginVertical: 4,
         marginHorizontal: 12,
-        borderBottomColor: '#bc4f07',
-        borderBottomWidth: 2,
+        borderBottomColor: '#E151AF',
+        borderBottomWidth: 1
     }
 })

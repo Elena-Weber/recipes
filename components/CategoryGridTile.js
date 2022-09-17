@@ -5,7 +5,7 @@ function CategoryGridTile({title, color, whenPressed}) { // destructuring props
     return (
         <View style={styles.card}>
             <Pressable
-                android_ripple={{color: '#005236'}}
+                android_ripple={{color: '#3EB4AF'}}
                 style={({pressed}) => [styles.container, pressed ? styles.containerPressed : null]}
                 onPress={whenPressed}
             >
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
         elevation: 4, // shadow on Android
         backgroundColor: 'white', // everything below this one is for shadow on Apple, including this bg color
-        shadowColor: '#005236',
+        shadowColor: '#3EB4AF',
         shadowOpacity: 0.25,
         shadowOffset: {width:0, height: 2},
         shadowRadius: 8,
