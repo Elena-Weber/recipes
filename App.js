@@ -2,11 +2,9 @@ import 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import FavoritesContextProvider from './store/context/favorites-context';
-import { Text, Button, StyleSheet } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // it's an object with 2 obligatory components: Navigator and Screen
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Animated from 'react-native-reanimated';
 import CategoriesScreen from './screens/CategoriesScreen';
 import Favorites from './screens/Favorites';
 import MealsScreen from './screens/MealsScreen';

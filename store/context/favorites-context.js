@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react';
-import { add } from 'react-native-reanimated';
 
 export const FavoritesContext = createContext({
     ids: [],

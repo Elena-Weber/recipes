@@ -1,6 +1,6 @@
 import { View, Pressable, Text, Image, StyleSheet, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import MealData from '../components/MealData';
+import MealData from '../MealData';
 
 function Meal({ id, title, imageUrl, duration, complexity, affordability }) { // props destructuring
 
