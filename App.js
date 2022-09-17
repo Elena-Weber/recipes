@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import FavoritesContextProvider from './store/context/favorites-context';
 import { Text, Button, StyleSheet } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // it's an object with 2 obligatory components: Navigator and Screen
@@ -60,43 +61,45 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <NavigationContainer>
-        <Stack.Navigator
-        // applies to all screens by default except Drawer
-          screenOptions={{
-            headerStyle: {backgroundColor: '#20686c'},
-            headerTintColor: 'white',
-            contentStyle: {backgroundColor: 'white'}
-          }}
-        >
-          <Stack.Screen
-            name="Categories"
-            component={DrawerNavigator}
-            options={{
-              // title: 'All categories',
-              headerShown: false // hides title
+      <FavoritesContextProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+          // applies to all screens by default except Drawer
+            screenOptions={{
+              headerStyle: {backgroundColor: '#20686c'},
+              headerTintColor: 'white',
+              contentStyle: {backgroundColor: 'white'}
             }}
-          />
-          <Stack.Screen
-            name="Meals"
-            component={MealsScreen}
-            // alternative dynamic title setting
-            // options={({ route, navigation }) => {
-            //   const catId = route.params.categoryId;
-            //   return {
-            //     title: catId,
-            //   };
-            // }}
-          />
-          <Stack.Screen
-            name="Meal"
-            component={MealDetails}
-            options={{
-              title: 'Details' // always overwrites name
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+          >
+            <Stack.Screen
+              name="Categories"
+              component={DrawerNavigator}
+              options={{
+                // title: 'All categories',
+                headerShown: false // hides title
+              }}
+            />
+            <Stack.Screen
+              name="Meals"
+              component={MealsScreen}
+              // alternative dynamic title setting
+              // options={({ route, navigation }) => {
+              //   const catId = route.params.categoryId;
+              //   return {
+              //     title: catId,
+              //   };
+              // }}
+            />
+            <Stack.Screen
+              name="Meal"
+              component={MealDetails}
+              options={{
+                title: 'Details' // always overwrites name
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </FavoritesContextProvider>
     </>
   );
 }

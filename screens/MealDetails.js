@@ -1,19 +1,28 @@
 import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
-import { useLayoutEffect } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import MealData from '../components/MealData';
 import Subtitle from '../components/MealDetails/Subtitle';
 import List from '../components/MealDetails/List';
 import HeaderBtn from '../components/HeaderBtn';
 import { MEALS } from '../data/dummy-data';
+import { FavoritesContext } from "../store/context/favorites-context";
 
 function MealDetails({ route, navigation }) { // route comes with navigation
+
+    const favoriteMealsContext = useContext(FavoritesContext);
 
     const mealId = route.params.mealId;
 
     const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
+    const isFavorite = favoriteMealsContext.ids.includes(mealId);
+
     function headerBtnHandler() {
-        console.log("pressed")
+        if (isFavorite) {
+            favoriteMealsContext.removeFavorite(mealId);
+        } else {
+            favoriteMealsContext.addFavorite(mealId);
+        }
     };
 
     useLayoutEffect(() => {
@@ -21,7 +30,7 @@ function MealDetails({ route, navigation }) { // route comes with navigation
             headerRight: () => {
                 return <HeaderBtn
                     onPressBtn={headerBtnHandler}
-                    icon="heart"
+                    icon={isFavorite ? 'heart' : 'heart-outline'}
                     color="white"
                 />
                 }
