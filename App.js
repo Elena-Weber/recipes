@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { Text, Button, StyleSheet } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,19 +20,37 @@ function DrawerNavigator() {
       screenOptions={{
         headerStyle: {backgroundColor: '#20686c'},
         headerTintColor: 'white',
-        sceneContainerStyle: {backgroundColor: 'white'}
+        sceneContainerStyle: {backgroundColor: 'white'},
+        drawerContentStyle: {backgroundColor: '#20686c'},
+        drawerInactiveTintColor: 'white',
+        drawerActiveTintColor: '#20686c',
+        drawerActiveBackgroundColor: '#6bc4a6'
       }}
     >
       <Drawer.Screen
-        name="Categories"
+        name="All Drawer Categories"
         component={CategoriesScreen}
         options={{
+          drawerIcon: ({color, size}) =>
+            <Ionicons
+              name="list"
+              size={size}
+              color={color}
+            />,
           title: 'All categories' // always overwrites name
         }}
       />
       <Drawer.Screen
         name="Favorites"
         component={Favorites}
+        options={{
+          drawerIcon: ({color, size}) =>
+            <Ionicons
+              name="heart"
+              size={size}
+              color={color}
+            />
+        }}
       />
     </Drawer.Navigator>
   );
