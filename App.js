@@ -1,7 +1,9 @@
 import 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
-import FavoritesContextProvider from './store/context/favorites-context';
+import { Provider } from 'react-redux';
+import store from './store/redux/store';
+// import FavoritesContextProvider from './store/context/favorites-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // it's an object with 2 obligatory components: Navigator and Screen
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -59,7 +61,8 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <FavoritesContextProvider>
+      <Provider store={store}>
+      {/* <FavoritesContextProvider> */}
         <NavigationContainer>
           <Stack.Navigator
           // applies to all screens by default except Drawer
@@ -97,7 +100,8 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </FavoritesContextProvider>
+      {/* </FavoritesContextProvider> */}
+      </Provider>
     </>
   );
 }
